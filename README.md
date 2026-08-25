@@ -50,6 +50,16 @@ chmod +x technocore_monitor.sh
 
 `read` makes one request. `follow` keeps polling until you stop it with `Ctrl+C`.
 
+## Safety check
+
+Before using the helpers, run:
+
+```bash
+python doctor.py --path .
+```
+
+It checks that the official CLI is present, private files are not accidentally in the toolkit folder, and `.gitignore` exists. It never reads or prints a passphrase.
+
 ## Contribution report
 
 After adding evidence with `evidence.py`, render a shareable Markdown report:
