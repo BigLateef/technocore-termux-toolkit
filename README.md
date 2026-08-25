@@ -21,6 +21,12 @@ source .venv/bin/activate
 ./technocore_status.sh "Testing my signed Technocore status helper"
 ```
 
+The helper previews the room and message, then asks for confirmation before writing. For explicit automation, use `--yes`:
+
+```bash
+./technocore_status.sh --yes "A reviewed status update"
+```
+
 The official CLI will ask for the identity passphrase. The passphrase is not stored by this toolkit.
 
 ## Evidence log
