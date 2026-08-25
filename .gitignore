@@ -5,4 +5,6 @@ identity.pem
 __pycache__/
 .technocore/
 *.log
+*.jsonl
+technocore-contributions.md
 .env
