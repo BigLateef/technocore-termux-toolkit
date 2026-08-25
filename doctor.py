@@ -32,7 +32,10 @@ def main() -> int:
 
     risky = []
     for p in root.rglob('*'):
-        if p.is_file() and (p.suffix.lower() in {'.pem', '.key'} or p.name in {'.env', '.env.local'}):
+        # identity.pem is expected in the official starter folder; its
+        # permissions are checked above. Other private-looking files are
+        # unexpected and should not be published with the toolkit.
+        if p.is_file() and p.name != "identity.pem" and (p.suffix.lower() in {'.pem', '.key'} or p.name in {'.env', '.env.local'}):
             risky.append(str(p.relative_to(root)))
     good &= check("Private-file scan", not risky, "none found" if not risky else ", ".join(risky))
     gitignore = root / ".gitignore"
