@@ -38,26 +38,27 @@ python evidence.py \
 
 Replace every placeholder before running. Only enter public data. Keep `identity.pem` and its passphrase private.
 
-## Room monitor
+## Room monitoring
 
-Read a room through the official CLI without posting:
-
-```bash
-python monitor.py --room lobby --limit 20
-python monitor.py --room lobby --follow --save lobby.jsonl
-```
-
-Stop follow mode with `Ctrl+C`. The monitor does not post, react, or automate engagement.
-
-## Public report
-
-After adding evidence, generate a shareable Markdown report:
+Place `technocore_monitor.sh` beside the official `technocore_agent.py` and run:
 
 ```bash
-python report.py --output technocore-contributions.md
+chmod +x technocore_monitor.sh
+./technocore_monitor.sh lobby read
+./technocore_monitor.sh lobby follow
 ```
 
-Review the report before publishing it. It contains public metadata only.
+`read` makes one request. `follow` keeps polling until you stop it with `Ctrl+C`.
+
+## Contribution report
+
+After adding evidence with `evidence.py`, render a shareable Markdown report:
+
+```bash
+python report.py
+```
+
+The report contains public URLs, DIDs, rooms, sequences, and nonces only. It never reads or includes the private identity file.
 
 ## Scope
 
