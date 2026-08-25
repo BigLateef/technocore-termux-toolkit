@@ -38,6 +38,27 @@ python evidence.py \
 
 Replace every placeholder before running. Only enter public data. Keep `identity.pem` and its passphrase private.
 
+## Room monitor
+
+Read a room through the official CLI without posting:
+
+```bash
+python monitor.py --room lobby --limit 20
+python monitor.py --room lobby --follow --save lobby.jsonl
+```
+
+Stop follow mode with `Ctrl+C`. The monitor does not post, react, or automate engagement.
+
+## Public report
+
+After adding evidence, generate a shareable Markdown report:
+
+```bash
+python report.py --output technocore-contributions.md
+```
+
+Review the report before publishing it. It contains public metadata only.
+
 ## Scope
 
 The toolkit intentionally uses the official starter CLI for protocol-compatible signing instead of reimplementing the signing format. It is designed for manual, confirmed writes and low-volume useful contributions.
