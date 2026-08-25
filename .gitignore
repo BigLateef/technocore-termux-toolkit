@@ -1,0 +1,8 @@
+identity.pem
+*.pem
+*.key
+.venv/
+__pycache__/
+.technocore/
+*.log
+.env
